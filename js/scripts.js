@@ -1,5 +1,5 @@
 alert('Hello world');
 
-let favouriteFood = "Pizza";
+let favouriteFood = "Pizza 🍕";
 
 document.write(favouriteFood);
