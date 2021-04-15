@@ -12,3 +12,11 @@ let pokemonList = [
   {name: "Sandshrew", height: 34.57, type:["ground"]},
   {name: "Nidoran", height: 27.57, type:["poison"]},
 ];
+
+for(i = 0; i < pokemonList.length; i++){
+  document.write("<p> " + pokemonList[i].name + ", (" + pokemonList[i].height + "cm).");
+  if(pokemonList[i].height > 100){
+    document.write(" - " + pokemonList[i].name + " is a very big one!. ");
+  };
+  document.write("<p>")
+}
