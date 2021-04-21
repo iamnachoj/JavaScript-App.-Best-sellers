@@ -13,10 +13,12 @@ let pokemonList = [
   {name: "Nidoran", height: 27.57, type:["poison"]},
 ];
 
-pokemonList.forEach(function(pokemon){
+function myLoopPokemon(pokemon){
   document.write("<p> " + pokemon.name + ", (" + pokemon.height + "cm).");
   if(pokemon.height > 100){
     document.write(" - " + pokemon.name + " is a very big one!. ");
   };
   document.write("<p>")
-})
+}
+
+pokemonList.forEach(myLoopPokemon);
