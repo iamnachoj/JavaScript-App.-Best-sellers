@@ -14,13 +14,23 @@ let pokemonRepository = (function(){
     {name: "Nidoran", height: 27.57, type:["poison"]},
   ];
 
-  function add(pokemon) {
-   pokemonList.push(pokemon);
- }
+  function add(pokemon, height, type) {
+    if (typeof(pokemon) !== "string") {
+      console.log("the pokemon you are trying to add needs to have a name that is a string");
+    } else { if(typeof(height) !== "number"){
+      console.log("the pokemon you are trying to add needs to have a height shown in number");
+    } else{ if(Array.isArray(type) !== true){console.log("the pokemon you are trying to add needs to have a type shown in an array");} else{
+      pokemonList.push({
+        name: pokemon,
+        height: height,
+        type: type
+      });
+    }}}
+  }
 
- function getAll() {
-   return pokemonList;
- }
+  function getAll() {
+    return pokemonList;
+  }
 
   return{
     add: add,
@@ -28,11 +38,10 @@ let pokemonRepository = (function(){
   };
 })();
 
-pokemonRepository.getAll().forEach(function myLoopPokemon(pokemon){
+pokemonRepository.getAll().forEach(function myLoopPokemon(pokemon) {
   document.write("<p> " + pokemon.name + ", (" + pokemon.height + "cm).");
-  if(pokemon.height > 100){
+  if (pokemon.height > 100) {
     document.write(" - " + pokemon.name + " is a very big one!. ");
   };
   document.write("<p>")
 });
-pokemonRepository.add("Magikarp");
