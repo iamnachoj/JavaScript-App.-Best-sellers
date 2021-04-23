@@ -14,13 +14,17 @@ let pokemonRepository = (function(){
     {name: "Nidoran", height: 27.57, type:["poison"]},
   ];
 
+  function add(pokemon) {
+   pokemonList.push(pokemon);
+ }
+
+ function getAll() {
+   return pokemonList;
+ }
+
   return{
-    add: function(pokemon){
-      pokemonList.push(pokemon);
-    },
-    getAll: function(){
-      return pokemonList;
-    }
+    add: add,
+    getAll: getAll
   };
 })();
 
@@ -31,3 +35,4 @@ pokemonRepository.getAll().forEach(function myLoopPokemon(pokemon){
   };
   document.write("<p>")
 });
+pokemonRepository.add("Magikarp");
