@@ -14,7 +14,14 @@ let pokemonRepository = (function(){
     {name: "Nidoran", height: 27.57, type:["poison"]},
   ];
 
-
+  return{
+    add: function(pokemon){
+      pokemonList.push(pokemon);
+    },
+    getAll: function(){
+      return pokemonList;
+    }
+  };
 })()
 
 pokemonList.forEach(function myLoopPokemon(pokemon){
