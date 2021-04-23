@@ -14,14 +14,13 @@ let pokemonRepository = (function(){
     {name: "Nidoran", height: 27.57, type:["poison"]},
   ];
 
-function myLoopPokemon(pokemon){
+
+})()
+
+pokemonList.forEach(function myLoopPokemon(pokemon){
   document.write("<p> " + pokemon.name + ", (" + pokemon.height + "cm).");
   if(pokemon.height > 100){
     document.write(" - " + pokemon.name + " is a very big one!. ");
   };
   document.write("<p>")
-}
-
-pokemonList.forEach(myLoopPokemon);
-
-})()
+});
