@@ -6,19 +6,13 @@ text-align: center;
 h1{
   font-family: 'Lato', sans-serif;
 }
-li{
-  list-style-type: none;
-  margin: 10px;
-}
 .button-class{
 background:    #f9cb9c;
-border:        1px solid #252525;
+border:        1px solid #556699;
 border-radius: 9px;
-padding:       10px 20px;
+padding:       20px 45px;
 color:         #252525;
+display:       inline-block;
 font:          normal normal 20px/1 "Noto Sans", sans-serif;
 text-align:    center;
-}
-.button-class:hover{
-background:   #febd7b;
 }
