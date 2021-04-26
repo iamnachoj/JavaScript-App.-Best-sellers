@@ -31,6 +31,10 @@ let pokemonRepository = (function(){
   function getAll() {
     return pokemonList;
   }
+  
+  function addListItem(){
+
+  }
 
   return{
     add: add,
@@ -42,7 +46,10 @@ pokemonRepository.getAll().forEach(function myLoopPokemon(pokemon) {
   let list = document.querySelector(".pokemon-list");
   let listItem = document.createElement("li");
   let button = document.createElement("button");
-  button.innerText = pokemonRepository.getAll();
-  button.classList.add("button-class")
+  button.innerText = "Placeholder";
+  button.classList.add("button-class");
+  listItem.appendChild(button);
+  list.appendChild(listItem);
+
 
 });
