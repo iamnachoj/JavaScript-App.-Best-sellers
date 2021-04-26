@@ -1,5 +1,6 @@
 body {
-  background-color: #d8e3e7;
+  background: rgb(238,255,244);
+  background: linear-gradient(90deg, rgba(238,255,244,1) 0%, rgba(182,241,241,1) 57%, rgba(144,228,204,1) 100%);
 font-family: 'Montserrat', sans-serif;
 text-align: center;
 }
@@ -9,6 +10,12 @@ h1{
 li{
   list-style-type: none;
   margin: 10px;
+}
+.pokeball {
+  width: 40px;
+  position: relative;
+  top: 10px;
+  left: 10px;
 }
 .button-class{
 background:    #FFE072;
