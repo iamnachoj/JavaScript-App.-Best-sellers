@@ -31,7 +31,7 @@ let pokemonRepository = (function(){
   function getAll() {
     return pokemonList;
   }
-  
+
   return{
     add: add,
     getAll: getAll
@@ -42,5 +42,7 @@ pokemonRepository.getAll().forEach(function myLoopPokemon(pokemon) {
   let list = document.querySelector(".pokemon-list");
   let listItem = document.createElement("li");
   let button = document.createElement("button");
+  button.innerText = pokemonRepository.getAll();
+  button.classList.add("button-class")
 
 });
