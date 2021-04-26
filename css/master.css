@@ -12,6 +12,7 @@ li{
 }
 .button-class{
 background:    #FFE072;
+width:         25%;
 border:        1px solid black;
 border-radius: 9px;
 padding:       10px 25px;
@@ -21,4 +22,9 @@ text-align:    center;
 }
 .button-class:hover{
   background:    #FFE792;
+}
+@media screen and (max-width: 910px) {
+ .button-class{
+   width: 50%;
+ }
 }
