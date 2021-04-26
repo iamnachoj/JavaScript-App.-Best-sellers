@@ -32,6 +32,10 @@ let pokemonRepository = (function(){
     return pokemonList;
   }
 
+// function showDetails(pokemon){
+// console.log(pokemon.name)
+// }
+
   function addListItem(pokemon){
     let list = document.querySelector(".pokemon-list");
     let listItem = document.createElement("li");
@@ -40,13 +44,20 @@ let pokemonRepository = (function(){
     button.classList.add("button-class");
     listItem.appendChild(button);
     list.appendChild(listItem);
+    // I had to leave it as a anonimous function because everytime I was trying to create a separate function and call it here (even without the parentheses), it
+    // would not allow me.
+    button.addEventListener("click", function(){
+      console.log(pokemon.name);
+    });
   }
 
   return{
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    // showDetails: showDetails
   };
+
 })();
 
 pokemonRepository.getAll().forEach(function myLoopPokemon(pokemon) {
