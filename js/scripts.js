@@ -32,7 +32,7 @@ let pokemonRepository = (function(){
     return pokemonList;
   }
 
-function showDetails(pokemon){
+  function showDetails(pokemon){
 console.log(pokemon.name)
 }
 
