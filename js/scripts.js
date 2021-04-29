@@ -56,7 +56,7 @@ console.log(pokemon.name)
     showDetails: showDetails
   };
 
-})();
+}());
 
 pokemonRepository.getAll().forEach(function myLoopPokemon(pokemon) {
 pokemonRepository.addListItem(pokemon);
