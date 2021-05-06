@@ -2,22 +2,25 @@ let pokemonRepository = (function(){
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-  function add(pokemon, height, type) {
-    if (typeof(pokemon) !== "string") {
-      console.log("the pokemon you are trying to add needs to have a name that is a string");
-    } else { if(typeof(height) !== "number"){
-      console.log("the pokemon you are trying to add needs to have a height shown in number");
-    } else{ if(Array.isArray(type) !== true){console.log("the pokemon you are trying to add needs to have a type shown in an array");} else{
-      pokemonList.push({
-        name: pokemon,
-        height: height,
-        type: type
-      });
-    }}}
+  function add(pokemon) {
+      pokemonList.push(pokemon);
   }
 
   function getAll() {
     return pokemonList;
+  }
+
+  function addListItem(pokemon){
+    let list = document.querySelector(".pokemon-list");
+    let listItem = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listItem.appendChild(button);
+    list.appendChild(listItem);
+    button.addEventListener("click", function(){
+    showDetails(pokemon);
+    });
   }
 
   function loadList() {
@@ -27,7 +30,7 @@ let pokemonRepository = (function(){
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
-          detailsUrl: item.url
+          height: item.height,
         };
         add(pokemon);
       });
@@ -39,11 +42,16 @@ let pokemonRepository = (function(){
   return{
     add: add,
     getAll: getAll,
-    loadList: loadList
+    loadList: loadList,
+    addListItem: addListItem
   };
 
 }());
 
-pokemonRepository.getAll().forEach(function myLoopPokemon(pokemon) {
-pokemonRepository.addListItem(pokemon);
+
+pokemonRepository.loadList().then(function() {
+  // Now the data is loaded!
+  pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.addListItem(pokemon);
+  });
 });
