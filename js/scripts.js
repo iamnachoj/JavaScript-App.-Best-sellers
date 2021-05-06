@@ -20,22 +20,6 @@ let pokemonRepository = (function(){
     return pokemonList;
   }
 
-  function showDetails(pokemon){
-console.log(pokemon.name)
-}
-
-  function addListItem(pokemon){
-    let list = document.querySelector(".pokemon-list");
-    let listItem = document.createElement("li");
-    let button = document.createElement("button");
-    button.innerText = pokemon.name;
-    button.classList.add("button-class");
-    listItem.appendChild(button);
-    list.appendChild(listItem);
-    button.addEventListener("click", function(){
-    showDetails(pokemon);
-    });
-  }
 
   return{
     add: add,
