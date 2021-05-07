@@ -40,7 +40,7 @@ let pokemonRepository = (function(){
           detailsUrl: item.url,
         };
         add(pokemon);
-        console.log(pokemon);
+        // console.log(pokemon); commented out as I personally don´t like it. But it works.
       });
     }).catch(function (e) {
       console.error(e);
