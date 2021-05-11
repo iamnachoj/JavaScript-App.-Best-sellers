@@ -83,13 +83,15 @@ let pokemonRepository = (function(){
       let titleElement = document.createElement("h1");
       titleElement.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
-      let contentElement = document.createElement("p");
-      contentElement.innerText = (pokemon.height / 10) + " meters";
-      if(contentElement.innerText === 1 + " meters"){contentElement.innerText = 1 + " meter"}
+      let heightElement = document.createElement("p");
+      heightElement.innerText = (pokemon.height / 10) + " meters";
+      if(heightElement.innerText === 1 + " meters"){heightElement.innerText = 1 + " meter"}
+
+
 
       modal.appendChild(closeButtonElement);
       modal.appendChild(titleElement);
-      modal.appendChild(contentElement);
+      modal.appendChild(heightElement);
       modalContainer.appendChild(modal);
 
       modalContainer.classList.add("is-visible");
