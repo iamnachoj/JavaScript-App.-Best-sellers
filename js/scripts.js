@@ -85,6 +85,7 @@ let pokemonRepository = (function(){
 
       let contentElement = document.createElement('p');
       contentElement.innerText = (pokemon.height / 10) + " meters";
+      if(contentElement.innerText === 1 + " meters"){contentElement.innerText = 1 + " meter"}
 
       modal.appendChild(closeButtonElement);
       modal.appendChild(titleElement);
@@ -124,7 +125,3 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
-document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal('Modal Title', 'Here is where you see the text');
-    });
