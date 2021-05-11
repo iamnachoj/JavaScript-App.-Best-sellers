@@ -62,7 +62,10 @@ let pokemonRepository = (function(){
  }
 
   function showDetails(pokemon){
-   loadDetails(pokemon).then(()=>{console.log(pokemon);})
+   loadDetails(pokemon).then(()=>{
+    
+
+   })
   }
 
   return{
