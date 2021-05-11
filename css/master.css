@@ -56,3 +56,7 @@ text-align:    center;
   /* this is used to center the modal */
   text-align: center;
 }
+
+#modal-container.is-visible{
+  display: grid;
+}
