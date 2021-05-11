@@ -4,13 +4,13 @@ let pokemonRepository = (function(){
 
   function add(pokemon) {
      if (typeof pokemon === "object" &&
-     "name" in pokemon &&
-     "detailsUrl" in pokemon
+       "name" in pokemon &&
+       "detailsUrl" in pokemon
      ) {
      pokemonList.push(pokemon);
-   } else {
+       } else {
      console.log("This pokemons is not correct");
-   }
+      }
   }
 
   function getAll() {
@@ -38,6 +38,7 @@ let pokemonRepository = (function(){
         let pokemon = {
           name: item.name,
           detailsUrl: item.url,
+          height: item.url.height,
         };
         add(pokemon);
         // console.log(pokemon); commented out as I personally don´t like it. But it works.
@@ -80,10 +81,10 @@ let pokemonRepository = (function(){
       closeButtonElement.addEventListener('click', hideModal);
 
       let titleElement = document.createElement('h1');
-      titleElement.innerText = pokemon;
+      titleElement.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
       let contentElement = document.createElement('p');
-      contentElement.innerText = "text";
+      contentElement.innerText = (pokemon.height / 10) + " meters";
 
       modal.appendChild(closeButtonElement);
       modal.appendChild(titleElement);
