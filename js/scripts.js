@@ -1,6 +1,6 @@
 let pokemonRepository = (function(){
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   function add(pokemon) {
      if (typeof pokemon === "object" &&
@@ -64,26 +64,26 @@ let pokemonRepository = (function(){
 
   function showDetails(pokemon){
    loadDetails(pokemon).then(()=>{
-      let modalContainer = document.querySelector('#modal-container');
+      let modalContainer = document.querySelector("#modal-container");
       modalContainer.innerHTML = "";
 
       function hideModal() {
-        modalContainer.classList.remove('is-visible');
+        modalContainer.classList.remove("is-visible");
        }
 
-       let modal = document.createElement('div');
-       modal.classList.add('modal');
+       let modal = document.createElement("div");
+       modal.classList.add("modal");
 
        // Add the new modal content
-      let closeButtonElement = document.createElement('button');
-      closeButtonElement.classList.add('modal-close');
-      closeButtonElement.innerText = 'Close';
-      closeButtonElement.addEventListener('click', hideModal);
+      let closeButtonElement = document.createElement("button");
+      closeButtonElement.classList.add("modal-close");
+      closeButtonElement.innerText = "Close";
+      closeButtonElement.addEventListener("click", hideModal);
 
-      let titleElement = document.createElement('h1');
+      let titleElement = document.createElement("h1");
       titleElement.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
-      let contentElement = document.createElement('p');
+      let contentElement = document.createElement("p");
       contentElement.innerText = (pokemon.height / 10) + " meters";
       if(contentElement.innerText === 1 + " meters"){contentElement.innerText = 1 + " meter"}
 
@@ -92,15 +92,15 @@ let pokemonRepository = (function(){
       modal.appendChild(contentElement);
       modalContainer.appendChild(modal);
 
-      modalContainer.classList.add('is-visible');
+      modalContainer.classList.add("is-visible");
 
-      modalContainer.addEventListener('click', (e) => {
+      modalContainer.addEventListener("click", (e) => {
        let target = e.target;
        if (target === modalContainer) {hideModal();}
          });
 
-      window.addEventListener('keydown', (e) => {
-       if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {hideModal();}
+      window.addEventListener("keydown", (e) => {
+       if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {hideModal();}
          });
 
    });
