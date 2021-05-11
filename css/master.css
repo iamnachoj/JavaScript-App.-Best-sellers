@@ -69,6 +69,7 @@ text-align:    center;
   padding: 15px;
   width: 100%;
   max-width: 300px;
+  max-height: 180px;
   text-align: left;
 }
 
@@ -91,4 +92,11 @@ text-align:    center;
 
 .modal p {
   margin-bottom: 0;
+}
+
+.img-pokemon{
+  height: 120%;
+  float: right;
+  position: relative;
+  bottom: 70px;
 }
