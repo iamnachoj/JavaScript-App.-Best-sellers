@@ -70,7 +70,17 @@ let pokemonRepository = (function(){
         modalContainer.classList.remove('is-visible');
        }
 
-      
+       let modal = document.createElement('div');
+       modal.classList.add('modal');
+
+       // Add the new modal content
+      let closeButtonElement = document.createElement('button');
+      closeButtonElement.classList.add('modal-close');
+      closeButtonElement.innerText = 'Close';
+      closeButtonElement.addEventListener('click', hideModal);
+
+      let titleElement = document.createElement('h1');
+      titleElement.innerText = pokemon;
    });
   }
 
