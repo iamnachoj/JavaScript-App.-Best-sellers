@@ -39,6 +39,7 @@ let pokemonRepository = (function(){
           name: item.name,
           detailsUrl: item.url,
           height: item.url.height,
+          weight: item.url.weight, // AQUI
         };
         add(pokemon);
         // console.log(pokemon); commented out as I personally don´t like it. But it works.
@@ -54,9 +55,8 @@ let pokemonRepository = (function(){
      return response.json();
    }).then(function (details) {
      // Now we add the details to the item
-     item.imageUrl = details.sprites.front_default;
      item.height = details.height;
-     item.types = details.types;
+     item.weight = details.weight;  // AQUI
    }).catch(function (e) {
      console.error(e);
    });
@@ -87,11 +87,13 @@ let pokemonRepository = (function(){
       heightElement.innerText = (pokemon.height / 10) + " meters";
       if(heightElement.innerText === 1 + " meters"){heightElement.innerText = 1 + " meter"}
 
-
+      let weightElement = document.createElement("p");
+      weightElement.innerText = (pokemon.weight / 10) + " Kgs"; // Y AQUI
 
       modal.appendChild(closeButtonElement);
       modal.appendChild(titleElement);
       modal.appendChild(heightElement);
+      modal.appendChild(weightElement);
       modalContainer.appendChild(modal);
 
       modalContainer.classList.add("is-visible");
