@@ -123,8 +123,6 @@ let pokemonRepository = (function(){
     getAll: getAll,
     loadList: loadList,
     addListItem: addListItem,
-    loadDetails: loadDetails,
-    showDetails: showDetails
   };
 
 }());
