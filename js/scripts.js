@@ -70,6 +70,7 @@ let pokemonRepository = (function(){
  }
 
   function showDetails(pokemon){
+    // function that will be triggered when clicking pokemon buttons
    loadDetails(pokemon).then(()=>{
       let modalBody = document.querySelector(".modal-body");
       modalBody.innerHTML = "";
