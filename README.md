@@ -6,12 +6,13 @@ As soon as you open the site, you should be able to view a clean, minimal list o
 
 The App is full responsive and enabled in Chrome, Firefox, Safari, Edge, and Internet Explorer 11.
 
-List and details of Pokemon provided by an external API (https://pokeapi.co/api/v2/pokemon/?limit=150).
+Here is the list and details of Pokemon provided by the external API (https://pokeapi.co/api/v2/pokemon/?limit=150).
 
 Tech stack: the basic trio Html-CSS-JavaScript + bootstrap (specially in the use of modals). 
 
 ESlint rules can be found in the .eslintc file
 
-In order to find the full code files, you will need to go to the file SRC. Index.html is linked to the scripts and styles.css via the DIST file, which are the same but minified files.
+In order to find the full code files, you will need to go to the file SRC. 
+Index.html is linked to the scripts and styles.css via the DIST file, which are the same but minified files.
 
-I put into practice Modals, data extraction from external API (parsing JSON), use of technical CSS properties, IIFEs, Asynchronous code. 
+To sum up, I put into practice data extraction from external API (parsing JSON), modals, use of technical CSS properties, IIFEs, Asynchronous code and performance and debugging. 
