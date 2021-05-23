@@ -18,6 +18,7 @@ let pokemonRepository = (function(){
   }
 
   function addListItem(pokemon){
+    // In order to add each pokemon to a li in the list (ul HTML element):
     let list = document.querySelector(".pokemon-list");
     let listItem = document.createElement("li");
     listItem.classList.add("group-list-item");
@@ -46,6 +47,7 @@ let pokemonRepository = (function(){
           image: item.url.sprites
         };
         add(pokemon);
+        // This adds the pokemon to the pokemonList array
       });
     }).catch(function (e) {
       console.error(e);
@@ -111,4 +113,5 @@ pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon){
     pokemonRepository.addListItem(pokemon);
   });
+  // after this, data from API is added graphically in the website as a button.
 });
