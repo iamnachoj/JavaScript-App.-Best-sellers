@@ -10,7 +10,9 @@ let pokemonRepository = (function () {
     ) {
       pokemonList.push(pokemon);
     } else {
+      /* eslint-disable no-console */
       console.log('This pokemons is not correct');
+      /* eslint-enable no-console */
     }
   }
 
@@ -54,7 +56,9 @@ let pokemonRepository = (function () {
         });
       })
       .catch(function (e) {
+        /* eslint-disable no-console */
         console.error(e);
+        /* eslint-enable no-console */
       });
   }
 
@@ -71,7 +75,9 @@ let pokemonRepository = (function () {
         item.image = details.sprites;
       })
       .catch(function (e) {
+        /* eslint-disable no-console */
         console.error(e);
+        /* eslint-enable no-console */
       });
   }
 
