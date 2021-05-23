@@ -1,5 +1,11 @@
 # JavaScript-App. Pokédex
 
+The Objective of this project is to build a small web application with HTML, CSS, and JavaScript that loads data from an external API and enables the viewing of data points in detail. In addition to that, I use Bootstrap to perform several UI patterns such as Modals.
+
+As soon as you open the site, you should be able to view a list ofthe API data (pokemon names) and see more details for a given pokemon once you click on their name.
+
+The App is full responsive and enabled in Chrome, Firefox, Safari, Edge, and Internet Explorer 11.
+
 List and details of Pokemon provided by an external API (https://pokeapi.co/api/v2/pokemon/?limit=150).
 
 Tech stack: the basic trio Html-CSS-JavaScript + bootstrap (specially in the use of modals). 
