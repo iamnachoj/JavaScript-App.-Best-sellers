@@ -1,0 +1,38 @@
+body {
+  background: #eefff4;
+  background: linear-gradient(90deg, #eefff4 0, #b6f1f1 57%, #90e4cc 100%);
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+}
+h1 {
+  font-family: Lato, sans-serif;
+}
+li {
+  list-style-type: none;
+  margin: 10px;
+}
+.pokeball {
+  width: 40px;
+  position: relative;
+  bottom: 5px;
+  left: 10px;
+}
+.button-class {
+  background: #ffe072;
+  width: 25%;
+  border: 1px solid #000;
+  border-radius: 9px;
+  padding: 10px 25px;
+  display: inline-block;
+  font: normal normal 20px/1 "Noto Sans", sans-serif;
+  text-align: center;
+}
+.button-class:hover {
+  background: #ffe792;
+  cursor: pointer;
+}
+@media screen and (max-width: 910px) {
+  .button-class {
+    width: 50%;
+  }
+}
