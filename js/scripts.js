@@ -1,23 +1,24 @@
-let pokemonRepository = (function(){
+let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   function add(pokemon) {
-     if (typeof pokemon === "object" &&
-       "name" in pokemon &&
-       "detailsUrl" in pokemon
-     ) {
-     pokemonList.push(pokemon);
-       } else {
-     console.log("This pokemons is not correct");
-      }
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "detailsUrl" in pokemon
+    ) {
+      pokemonList.push(pokemon);
+    } else {
+      console.log("This pokemons is not correct");
+    }
   }
 
   function getAll() {
     return pokemonList;
   }
 
-  function addListItem(pokemon){
+  function addListItem(pokemon) {
     // In order to add each pokemon to a li in the list (ul HTML element):
     let list = document.querySelector(".pokemon-list");
     let listItem = document.createElement("li");
@@ -29,63 +30,71 @@ let pokemonRepository = (function(){
     button.setAttribute("data-target", "#modal");
     listItem.appendChild(button);
     list.appendChild(listItem);
-    button.addEventListener("click", function(){
-    showDetails(pokemon);
+    button.addEventListener("click", function () {
+      showDetails(pokemon);
     });
   }
 
   function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function(json) {
-      json.results.forEach(function (item) {
-        let pokemon = {
-          name: item.name,
-          detailsUrl: item.url,
-          height: item.url.height,
-          weight: item.url.weight,
-          image: item.url.sprites
-        };
-        add(pokemon);
-        // This adds the pokemon to the pokemonList array
+    return fetch(apiUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        json.results.forEach(function (item) {
+          let pokemon = {
+            name: item.name,
+            detailsUrl: item.url,
+            height: item.url.height,
+            weight: item.url.weight,
+            image: item.url.sprites,
+          };
+          add(pokemon);
+          // This adds the pokemon to the pokemonList array
+        });
+      })
+      .catch(function (e) {
+        console.error(e);
       });
-    }).catch(function (e) {
-      console.error(e);
-    })
   }
 
   function loadDetails(item) {
-   let url = item.detailsUrl;
-   return fetch(url).then(function (response) {
-     return response.json();
-   }).then(function (details) {
-     // Now we add the details to the item
-     item.height = details.height;
-     item.weight = details.weight;
-     item.image = details.sprites
+    let url = item.detailsUrl;
+    return fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (details) {
+        // Now we add the details to the item
+        item.height = details.height;
+        item.weight = details.weight;
+        item.image = details.sprites;
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
+  }
 
-   }).catch(function (e) {
-     console.error(e);
-   });
- }
-
-  function showDetails(pokemon){
+  function showDetails(pokemon) {
     // function that will be triggered when clicking pokemon buttons
-   loadDetails(pokemon).then(()=>{
+    loadDetails(pokemon).then(() => {
       let modalBody = document.querySelector(".modal-body");
       modalBody.innerHTML = "";
       let modalTitle = document.querySelector(".modal-title");
       modalTitle.innerHTML = "";
 
-       // Add the modal content
+      // Add the modal content
       let title = document.createElement("h4");
-      title.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+      title.innerText =
+        pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
       let heightElement = document.createElement("p");
-      heightElement.innerText = (pokemon.height / 10) + " meters";
-      if(heightElement.innerText === 1 + " meters"){heightElement.innerText = 1 + " meter"}
+      heightElement.innerText = pokemon.height / 10 + " meters";
+      if (heightElement.innerText === 1 + " meters") {
+        heightElement.innerText = 1 + " meter";
+      }
 
       let weightElement = document.createElement("p");
-      weightElement.innerText = (pokemon.weight / 10) + " Kgs";
+      weightElement.innerText = pokemon.weight / 10 + " Kgs";
 
       let imgElement = document.createElement("img");
       imgElement.classList.add("img-pokemon");
@@ -95,23 +104,20 @@ let pokemonRepository = (function(){
       modalBody.appendChild(heightElement);
       modalBody.appendChild(weightElement);
       modalBody.appendChild(imgElement);
-
-   });
+    });
   }
 
-  return{
+  return {
     add: add,
     getAll: getAll,
     loadList: loadList,
     addListItem: addListItem,
   };
+})();
 
-}());
-
-
-pokemonRepository.loadList().then(function() {
+pokemonRepository.loadList().then(function () {
   // Now the data is loaded!
-  pokemonRepository.getAll().forEach(function(pokemon){
+  pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
   // after this, data from API is added graphically in the website as a button.
